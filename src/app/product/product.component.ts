@@ -3,6 +3,7 @@ import {IProduct} from '../SharedClasses/IProduct';
 import {ICategory} from '../SharedClasses/ICategory';
 import {DiscountOffers} from '../SharedClasses/Enum';
 import { ProductServiceService } from '../Services/product-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
 let Discount:DiscountOffers;
 let StoreName:string;
 let StoreLogo:string;
@@ -26,7 +27,7 @@ export class ProductComponent implements OnInit {
   public show:boolean = true;
   public hide:boolean = false;
   public IsPurshased:any ='Show';
-  constructor(private ProductService:ProductServiceService) { }
+  constructor(private router:Router,private activeroute:ActivatedRoute,private ProductService:ProductServiceService) { }
   ngOnInit(): void {
     this.ProductList = this.ProductService.GetAllProducts();
   } 
@@ -51,6 +52,13 @@ export class ProductComponent implements OnInit {
      this.IsShownProduct =true;
      this.targetProduct =this.ProductService.GetProductById(id);
   }​​​​​ 
-
+  discount()
+  { 
+    this.router.navigate(['productwithdiscount'],{relativeTo:this.activeroute})
+  }
+  withoutdiscount()
+  {
+    this.router.navigate(['productwithoutdiscount'],{relativeTo:this.activeroute})
+  }
 } 
 

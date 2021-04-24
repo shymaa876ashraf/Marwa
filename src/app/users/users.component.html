@@ -1,0 +1,19 @@
+
+<div class='table-responsive ' >
+    <table class='table' style="margin-left:370px;width: 50%;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>user Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userList ">
+                <td>{{user.name}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
